@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+div {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+</style>
+<script type="text/javascript">
+console.clear();
+let billingData =
+[{
+  customer: {
+  	id: "21",
+    name: "Angus Young",
+    email: "angus.young@acdc.com"
+  },
+  invoices: [
+      { invoice: 1001, date: "2021-01-01", amount: 500.00 },
+      { invoice: 1002, date: "2021-01-02", amount: 200.05 },
+      { invoice: 1003, date: "2021-02-01", amount: 100.80 },
+      { invoice: 1004, date: "2021-03-01", amount:  75.00 },
+      { invoice: 1005, date: "2021-03-01", amount: 422.00 },
+      { invoice: 1006, date: "2021-04-05", amount:  68.00 }
+  ]
+},
+{
+  customer: {
+  	id: "23",
+    name: "Malcolm Young",
+    email: "malcolm.young@acdc.com"
+  },
+  invoices: [
+      { invoice: 1001, date: "2021-01-01", amount: 500.00 },
+      { invoice: 1002, date: "2021-01-02", amount: 200.08 },
+      { invoice: 1003, date: "2021-02-01", amount: 100.00 },
+      { invoice: 1004, date: "2021-03-01", amount:  75.00 },
+      { invoice: 1005, date: "2021-03-01", amount: 422.50 },
+      { invoice: 1006, date: "2021-04-05", amount: 600.00 }
+  ]
+}];
+
+let sum = [];
+for (let i=0; i<billingData.length; i++)
+{
+    sum[i] = 0 + billingData[i].invoices.reduce
+    (
+        (accum, invoice) => {
+            return (accum + invoice.amount);
+        },
+        0
+    );
+    console.log((billingData[i].customer.name + ":"), sum[i]);
+}
+let grandTotal = sum.reduce
+(
+    (accum, value) => {
+        return (accum + value);
+    }
+);
+console.log("Grand Total:", grandTotal);
+</script>
+</head>
+<body>
+<div>Hi!</div>
+<script>
+document.querySelector("div").innerHTML =  `${billingData[0].customer.name}: ${sum[0]}<br/>`;
+document.querySelector("div").innerHTML += `${billingData[1].customer.name}: ${sum[1]}<br/>`;
+document.querySelector("div").innerHTML += `Grand Total: ${grandTotal}<br/>`;
+</script>
+</body>
+</html>
