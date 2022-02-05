@@ -1,35 +1,54 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
-<body>
-
-<h2>JavaScript Arrays</h2>
-
-<p>The Array.sort() method sorts the elements of an array.</p>
-
-<p id="demo"></p>
-
-<script>
-console.clear();
-let pets =
-[
-	{ breed: "dog",        gender: "male",   age: 1.00, shelter: "Bonita"        },
-	{ breed: "rabbit",     gender: "male",   age: 0.50, shelter: "Bonita"        },
-	{ breed: "cat",        gender: "female", age: 0.33, shelter: "San Diego"     },
-	{ breed: "chinchilla", gender: "female", age: 1.50, shelter: "Chula Vista"   },
-	{ breed: "hamster",    gender: "female", age: 0.25, shelter: "National City" },
-	{ breed: "parakeet",   gender: "male",   age: 2.00, shelter: "Chula Vista"   }
-];
-
-pets.sort
-(
-    (a,b) => {
-        return ((a.shelter === b.shelter) ? 0 : ((a.shelter > b.shelter) ? 1 : -1));
-    }
-);
-console.info(JSON.stringify(pets, null, 2));
-
-document.getElementById("demo").innerHTML = JSON.stringify(pets, null, 2).replaceAll("\n", "<br/>&nbsp;&nbsp;");
-</script>
-
-</body>
+    <head>
+        <title>array.sort()</title>
+        <style>
+        div {
+            margin-top: 1rem;
+            margin-left: 2rem;
+        }
+        h1 {
+            font-family: tahoma,verdana,calibri;
+            color: grey;
+            margin-top: 2rem;
+            margin-left: 2rem;
+        }
+        textarea {
+            color: mediumSlateBlue;
+            disabled: true;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-size: medium;
+            font-weight: bold;
+            resize: vertical;
+        }
+        </style>
+        <script type="text/javascript">
+        console.clear();
+        let pets =
+        [
+	        { breed: "dog",        gender: "male",   age: 1.00, shelter: "Bonita"        },
+	        { breed: "rabbit",     gender: "male",   age: 0.50, shelter: "Bonita"        },
+	        { breed: "cat",        gender: "female", age: 0.33, shelter: "San Diego"     },
+	        { breed: "chinchilla", gender: "female", age: 1.50, shelter: "Chula Vista"   },
+	        { breed: "hamster",    gender: "female", age: 0.25, shelter: "National City" },
+	        { breed: "parakeet",   gender: "male",   age: 2.00, shelter: "Chula Vista"   }
+        ];
+        pets.sort
+        (
+            (a,b) => {
+                return ((a.shelter === b.shelter) ? 0 : ((a.shelter > b.shelter) ? 1 : -1));
+            }
+        );
+        console.info(JSON.stringify(pets, null, 2));
+        </script>
+    </head>
+    <body>
+        <h1>array.sort()</h1>
+        <div>
+            <textarea cols="100" rows="25" disabled></textarea>
+        </div>
+        <script type="text/javascript">
+        document.querySelector("textarea").innerHTML = JSON.stringify(pets, null, 2);
+        </script>
+    </body>
 </html>
