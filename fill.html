@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+div {
+    border-color: magenta;
+    border-style: solid;
+    border-width: 1px;
+    color: purple;
+    font-family: calibri,verdana,tahoma;
+    font-size: normal;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    padding: 1em;
+}
+h1 {
+    color: grey;
+    font-family: tahoma,verdana,calibri;
+    margin-left: 1rem;
+}
+</style>
+<script type="text/javascript">
+console.clear();
+let random = new Array(10);
+random = random.fill(undefined).map(()=>Math.floor(Math.random()*100, 2));
+console.info("random:", random);
+</script>
+</head>
+<body>
+<h1>array.fill()</h1>
+<div></div>
+<script type="text/javascript">
+document.querySelector("div").innerHTML =  `<b>random:</b> ${JSON.stringify(random, null, 2)}<br/>`;
+</script>
+</body>
+</html>
