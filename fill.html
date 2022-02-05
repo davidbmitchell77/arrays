@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
+<style>
 div {
     border-color: skyBlue;
     border-style: solid;
     border-width: 1px;
     color: blue;
-    font-family: calibri,verdana,tahoma;
-    font-size: normal;
+    font-family: tahoma,verdana,calibri,arial;
+    line-height: 10px;
     margin-top: 1rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    padding: 1em;
+    padding: 1rem;
 }
 h1 {
     color: grey;
-    font-family: tahoma,verdana,calibri;
     margin-top: 2rem;
     margin-left: 2rem;
+    font-family: tahoma,verdana,calibri,arial;
 }
 </style>
 <script type="text/javascript">
-let random = new Array(10).fill(undefined);
-console.info("new Array(10).fill(undefined):", random);
-function refresh()
-{
-    console.clear();
-    random = random.map
-    (
-        () => {
-            return (Math.floor(Math.random() * 1000));
-        }
-    );
-    console.info("random:", random);
-}
+console.clear();
+let integers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+let even = integers.filter
+(
+    (i) => {
+        return !(i % 2);
+    }
+);
+console.info("even:", even);
+let odd = integers.filter
+(
+    (i) => {
+        return (i % 2);
+    }
+);
+console.info("odd:", odd);
 </script>
 </head>
 <body>
-<h1>array.fill()</h1>
-<div></div>
-<script type="text/javascript">
-refresh();
-document.querySelector("div").innerHTML = `<b>random:</b> ${JSON.stringify(random, null, 2)}<br/>`;
-setInterval
-(
-    () => {
-        refresh();
-        document.querySelector("div").innerHTML = `<b>random:</b> ${JSON.stringify(random, null, 2)}<br/>`;
-    },
-    (2.5 * 1000)
-)
+<h1>array.filter()</h1>
+<div id="demo"></div>
+<script>
+let div = document.getElementById("demo");
+div.innerHTML =  `<p><b>integers:</b> ${JSON.stringify(integers, null, 2)}</p>`;
+div.innerHTML += `<p><b>odd:</b> ${JSON.stringify(odd, null, 2)}</p>`;
+div.innerHTML += `<p><b>even:</b> ${JSON.stringify(even, null, 2)}</p>`;
 </script>
 </body>
 </html>
