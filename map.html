@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>array.map()</title>
 <style type="text/css">
 div {
     border-color: magenta;
@@ -10,13 +11,18 @@ div {
     font-family: calibri,verdana,tahoma;
     font-size: normal;
     margin-top: 1rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     padding: 1em;
 }
 h1 {
     color: grey;
     font-family: tahoma,verdana,calibri;
-    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+p {
+    line-height: 12px;
 }
 </style>
 <script type="text/javascript">
@@ -44,12 +50,13 @@ console.info("quadruple:", quadruple);
 <h1>array.map()</h1>
 <div></div>
 <script type="text/javascript">
-document.querySelector("div").innerHTML =  `<b>quarter:</b> ${JSON.stringify(quarter, null, 2)}<br/>`;
-document.querySelector("div").innerHTML += `<b>half:</b> ${JSON.stringify(half, null, 2)}<br/>`;
-document.querySelector("div").innerHTML += `<b>single:</b> ${JSON.stringify(single, null, 2)}<br/>`;
-document.querySelector("div").innerHTML += `<b>double:</b> ${JSON.stringify(double, null, 2)}<br/>`;
-document.querySelector("div").innerHTML += `<b>triple:</b> ${JSON.stringify(triple, null, 2)}<br/>`;
-document.querySelector("div").innerHTML += `<b>quadruple:</b> ${JSON.stringify(quadruple, null, 2)}<br/>`;
+let div = document.querySelector("div");
+div.innerHTML += `<p><b>quarter:</b> ${JSON.stringify(quarter, null, 2)}</p>`;
+div.innerHTML += `<p><b>half:</b> ${JSON.stringify(half, null, 2)}</p>`;
+div.innerHTML += `<p><b>single:</b> ${JSON.stringify(single, null, 2)}</p>`;
+div.innerHTML += `<p><b>double:</b> ${JSON.stringify(double, null, 2)}</p>`;
+div.innerHTML += `<p><b>triple:</b> ${JSON.stringify(triple, null, 2)}</p>`;
+div.innerHTML += `<p><b>quadruple:</b> ${JSON.stringify(quadruple, null, 2)}</p>`;
 </script>
 </body>
 </html>
