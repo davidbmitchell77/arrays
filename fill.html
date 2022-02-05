@@ -3,10 +3,10 @@
 <head>
 <style type="text/css">
 div {
-    border-color: magenta;
+    border-color: skyBlue;
     border-style: solid;
     border-width: 1px;
-    color: purple;
+    color: blue;
     font-family: calibri,verdana,tahoma;
     font-size: normal;
     margin-top: 1rem;
@@ -22,23 +22,35 @@ h1 {
 }
 </style>
 <script type="text/javascript">
-console.clear();
 let random = new Array(10).fill(undefined);
 console.info("new Array(10).fill(undefined):", random);
-random = random.map
-(
-    () => {
-        return (Math.floor(Math.random() * 1000));
-    }
-);
-console.info("random:", random);
+function refresh()
+{
+    console.clear();
+    random = random.map
+    (
+        () => {
+            return (Math.floor(Math.random() * 1000));
+        }
+    );
+    console.info("random:", random);
+}
 </script>
 </head>
 <body>
 <h1>array.fill()</h1>
 <div></div>
 <script type="text/javascript">
+refresh();
 document.querySelector("div").innerHTML = `<b>random:</b> ${JSON.stringify(random, null, 2)}<br/>`;
+setInterval
+(
+    () => {
+        refresh();
+        document.querySelector("div").innerHTML = `<b>random:</b> ${JSON.stringify(random, null, 2)}<br/>`;
+    },
+    (2.5 * 1000)
+)
 </script>
 </body>
 </html>
