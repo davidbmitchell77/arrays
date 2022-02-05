@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-div {
-    border-color: skyBlue;
-    border-style: solid;
-    border-width: 1px;
-    color: blue;
-    font-family: tahoma,verdana,calibri,arial;
-    line-height: 10px;
-    margin-top: 1rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    padding: 1rem;
-}
-h1 {
-    color: grey;
-    margin-top: 2rem;
-    margin-left: 2rem;
-    font-family: tahoma,verdana,calibri,arial;
-}
-</style>
-<script type="text/javascript">
-console.clear();
-let integers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
-let even = integers.filter
-(
-    (i) => {
-        return !(i % 2);
+    <style type="text/css">
+    div {
+        border-color: skyBlue;
+        border-style: solid;
+        border-width: 1px;
+        color: mediumBlue;
+        font-family: verdana, calibri, verdana, tahoma;
+        font-size: normal;
+        margin-top: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1em;
     }
-);
-console.info("even:", even);
-let odd = integers.filter
-(
-    (i) => {
-        return (i % 2);
+    h1 {
+        color: grey;
+        font-family: tahoma, verdana, calibri;
+        margin-top: 2rem;
+        margin-left: 2rem;
     }
-);
-console.info("odd:", odd);
-</script>
+    </style>
+    <script type="text/javascript">
+    let random = new Array(10).fill(undefined);
+    console.info("new Array(10).fill(undefined):", random);
+    function refresh()
+    {
+        console.clear();
+        random = random.map
+        (
+            () => {
+                return (Math.floor(Math.random() * 1000));
+            }
+        );
+        console.info("random:", random);
+    }
+    </script>
 </head>
 <body>
-<h1>array.filter()</h1>
-<div id="demo"></div>
-<script>
-let div = document.getElementById("demo");
-div.innerHTML =  `<p><b>integers:</b> ${JSON.stringify(integers, null, 2)}</p>`;
-div.innerHTML += `<p><b>odd:</b> ${JSON.stringify(odd, null, 2)}</p>`;
-div.innerHTML += `<p><b>even:</b> ${JSON.stringify(even, null, 2)}</p>`;
-</script>
+    <h1>array.fill()</h1>
+    <div></div>
+    <script type="text/javascript">
+    refresh();
+    let div = document.querySelector("div");
+    div.innerHTML = `<p><b>random:</b> ${JSON.stringify(random, null, 2)}</p>`;
+    setInterval
+    (
+        () => {
+            refresh();
+            div.innerHTML = `<p><b>random:</b> ${JSON.stringify(random, null, 2)}</p>`;
+        },
+        (2.5 * 1000)
+    )
+    </script>
 </body>
 </html>
