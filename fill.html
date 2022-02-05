@@ -21,8 +21,14 @@ h1 {
 </style>
 <script type="text/javascript">
 console.clear();
-let random = new Array(10);
-random = random.fill(undefined).map(()=>Math.floor(Math.random()*100, 2));
+let random = new Array(10).fill(undefined);
+console.warn(random);
+random = random.map
+(
+    () => {
+        return (Math.floor(Math.random() * 1000));
+    }
+);
 console.info("random:", random);
 </script>
 </head>
