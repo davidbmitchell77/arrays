@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+div {
+    border-color: magenta;
+    border-style: solid;
+    border-width: 1px;
+    color: purple;
+    font-family: calibri,verdana,tahoma;
+    font-size: normal;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    padding: 1em;
+}
+h1 {
+    color: grey;
+    font-family: tahoma,verdana,calibri;
+    margin-left: 1rem;
+}
+</style>
+<script type="text/javascript">
+console.clear();
+let single = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+let quarter = single.map(value=>(value / 4));
+let half = single.map(value=>(value / 2));
+let double = single.map
+(
+    (value) => {
+        return (value * 2);
+    }
+);
+let triple = single.map(value=>(value*3));
+let quadruple = single.map(value=>(value*4));
+console.info("quarter:", quarter);
+console.info("half:", half);
+console.info("single:", single);
+console.info("double:", double);
+console.info("triple:", triple);
+console.info("quadruple:", quadruple);
+</script>
+</head>
+<body>
+<h1>array.map()</h1>
+<div></div>
+<script type="text/javascript">
+document.querySelector("div").innerHTML =  `<b>quarter:</b> ${JSON.stringify(quarter, null, 2)}<br/>`;
+document.querySelector("div").innerHTML += `<b>half:</b> ${JSON.stringify(half, null, 2)}<br/>`;
+document.querySelector("div").innerHTML += `<b>single:</b> ${JSON.stringify(single, null, 2)}<br/>`;
+document.querySelector("div").innerHTML += `<b>double:</b> ${JSON.stringify(double, null, 2)}<br/>`;
+document.querySelector("div").innerHTML += `<b>triple:</b> ${JSON.stringify(triple, null, 2)}<br/>`;
+document.querySelector("div").innerHTML += `<b>quadruple:</b> ${JSON.stringify(quadruple, null, 2)}<br/>`;
+</script>
+</body>
+</html>
