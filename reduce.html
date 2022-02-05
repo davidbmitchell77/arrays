@@ -8,7 +8,7 @@
         border-style: solid;
         border-width: 1px;
         color: mediumBlue;
-        font-family: verdana, calibri, verdana, tahoma;
+        font-family: verdana, tahoma, calibri, arial;
         font-size: normal;
         margin-top: 1rem;
         margin-left: 2rem;
@@ -17,7 +17,7 @@
     }
     h1 {
         color: grey;
-        font-family: tahoma, verdana, calibri;
+        font-family: tahoma, verdana, calibri, arial;
         margin-top: 2rem;
         margin-left: 2rem;
     }
@@ -141,9 +141,12 @@
     <div></div>
     <script type="text/javascript">
     let div = document.querySelector("div");
-    for (let i=0; i<billingData.length; i++) {
-        div.innerHTML += `<p>${billingData[i].customer.name}: <span>${currency.format(sum[i])}</span></p>`;
-    }
+    billingData.forEach
+    (
+        (item, index) => {
+            div.innerHTML += `<p>${item.customer.name}: <span>${currency.format(sum[index])}</span></p>`;
+        }
+    );
     div.innerHTML += `<p class="grandTotal"><b>Grand Total: <span>${currency.format(grandTotal)}</span></b></p>`;
     </script>
 </body>
