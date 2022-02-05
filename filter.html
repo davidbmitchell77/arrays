@@ -3,16 +3,27 @@
 <head>
 <style>
 div {
+    border-color: skyBlue;
+    border-style: solid;
+    border-width: 1px;
+    color: blue;
+    font-family: tahoma,verdana,calibri,arial;
+    line-height: 10px;
     margin-top: 1rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 1rem;
+}
+h1 {
+    color: grey;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    font-family: tahoma,verdana,calibri,arial;
 }
 </style>
-</head>
-<body>
-<div id="demo"></div>
 <script type="text/javascript">
 console.clear();
-let integers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+let integers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 let even = integers.filter
 (
     (i) => {
@@ -27,7 +38,16 @@ let odd = integers.filter
     }
 );
 console.info("odd:", odd);
-document.getElementById("demo").innerHTML = ("integers: " + JSON.stringify(integers) + "<br/>" + "odd: " + JSON.stringify(odd) + "<br/>" + "even: " + JSON.stringify(even)).replaceAll(",", ", ").replaceAll("[", "[ ").replaceAll("]", " ]");
+</script>
+</head>
+<body>
+<h1>array.filter()</h1>
+<div id="demo"></div>
+<script>
+let div = document.getElementById("demo");
+div.innerHTML =  `<p><b>integers:</b> ${JSON.stringify(integers, null, 2)}</p>`;
+div.innerHTML += `<p><b>odd:</b> ${JSON.stringify(odd, null, 2)}</p>`;
+div.innerHTML += `<p><b>even:</b> ${JSON.stringify(even, null, 2)}</p>`;
 </script>
 </body>
 </html>
